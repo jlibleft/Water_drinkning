@@ -18,6 +18,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.water_drinking.ui.theme.Water_drinkingTheme
@@ -42,11 +43,14 @@ fun HomeScreen (){
                      .height(200.dp)
                      .fillMaxWidth(),
              ){
-                 Text("STAY HYDRATED!",
+                 Box(modifier = Modifier.fillMaxSize(),
+                     contentAlignment = Alignment.TopCenter){
+
+                     Text("STAY HYDRATED!",
                      modifier =  Modifier
-                         .offset(x = 30.dp,y = 20.dp)
-                         .padding(8.dp),
-                     style = MaterialTheme.typography.headlineMedium)
+                         .padding(16.dp),
+                     style = MaterialTheme.typography.headlineMedium)}
+
              }
 
              Card(
@@ -55,12 +59,13 @@ fun HomeScreen (){
                      .height(200.dp)
                      .fillMaxWidth(),
              ) {
-                 Text("Second button",
-                     modifier = Modifier
-                         .offset(x = 30.dp, y = 20.dp)
-                         .padding(8.dp),
-                     style = MaterialTheme.typography.headlineMedium
-                 )
+                 Box(modifier = Modifier.fillMaxSize(),
+                     contentAlignment = Alignment.TopCenter){
+
+                     Text("Second feature",
+                         modifier =  Modifier
+                             .padding(16.dp),
+                         style = MaterialTheme.typography.headlineMedium)}
              }
 
              Row(modifier = Modifier.padding(innerPadding)) {
