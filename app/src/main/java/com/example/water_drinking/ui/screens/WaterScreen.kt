@@ -73,13 +73,7 @@ fun WaterScreen() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Napij sie $name!",
-        modifier = modifier
-    )
-}
+
 @Preview(showBackground = true)
 @Composable
 fun WaterScreenPreview() {
