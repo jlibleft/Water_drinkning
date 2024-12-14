@@ -21,8 +21,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
@@ -35,9 +37,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Water_drinkingTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) {
+                Surface(
+                    modifier = Modifier.fillMaxSize()) {
                     HomeScreen()
                 }
+
             }
         }
     }
@@ -47,7 +51,9 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen (){
-    Scaffold(topBar = {
+    Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
+        topBar = {
         TopAppBar(title = { Text("Drink & Activity Tracker",
             modifier =  Modifier,
             style = MaterialTheme.typography.headlineSmall,
@@ -59,6 +65,9 @@ fun HomeScreen (){
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(innerPadding)){
             Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                ),
                 modifier = Modifier
                     .padding(16.dp)
                     .height(200.dp)
@@ -75,6 +84,9 @@ fun HomeScreen (){
             }
 
             Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                ),
                 modifier = Modifier
                     .padding(16.dp)
                     .height(200.dp)
@@ -91,6 +103,9 @@ fun HomeScreen (){
 
             Row(modifier = Modifier.padding(innerPadding)) {
                 Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                    ),
                     modifier = Modifier
                         .padding(16.dp)
                         .height(56.dp)
@@ -104,6 +119,9 @@ fun HomeScreen (){
                     }
                 }
                 Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                    ),
                     modifier = Modifier
                         .padding(16.dp)
                         .height(150.dp)
