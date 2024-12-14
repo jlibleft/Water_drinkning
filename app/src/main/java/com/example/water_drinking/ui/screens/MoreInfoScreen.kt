@@ -1,6 +1,7 @@
 package com.example.water_drinking.ui.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,17 +23,20 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.water_drinking.R
 import com.example.water_drinking.ui.theme.Water_drinkingTheme
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 
-var nums = (0..9).random()
+//var nums = (0..9).random()
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MoreInfoScreen(
-    randnum : Int
+    randnum : Int,
+    navController: NavHostController
 ) {
     Scaffold(topBar = {
         TopAppBar(title = { Text("Did you know?", modifier =  Modifier.offset(x = 120.dp,y = 10.dp)) })
@@ -78,6 +82,7 @@ fun MoreInfoScreen(
                 Box(modifier = Modifier
                     .padding(8.dp)
                     .fillMaxWidth()
+                    .clickable { navController.navigate("water") }
 
                 ){
                     Text("GO BACK",
@@ -126,7 +131,8 @@ val Messages = listOf("Cartilage, found in joints and the disks of the spine, co
 @Composable
 @Preview
 fun MoreInfoScreenPreview(){
+    val mockNavController = rememberNavController()
     Water_drinkingTheme {
-        MoreInfoScreen(1)
+        MoreInfoScreen(navController = mockNavController, randnum = 1)
     }
 }

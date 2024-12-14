@@ -1,5 +1,6 @@
 package com.example.water_drinking.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,12 +20,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.water_drinking.ui.theme.Water_drinkingTheme
 import org.jetbrains.annotations.ApiStatus.Experimental
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun WaterScreen() {
+fun WaterScreen(
+    navController: NavHostController
+) {
     Scaffold(topBar = {
         TopAppBar(title = { Text("Water drinking", modifier =  Modifier.offset(x = 120.dp,y = 10.dp)) })
     }) { innerPadding ->
@@ -33,13 +38,13 @@ fun WaterScreen() {
             Card(
                 modifier = Modifier
                     .padding(16.dp)
-                    .height(450.dp)
+                    .height(350.dp)
                     .fillMaxWidth(),
             ) {
                 Box(modifier = Modifier
                     .fillMaxWidth(),
                 ) {
-                    Text("Click to fill the cup", modifier =  Modifier.offset(x = 100.dp,y = 400.dp))
+                    Text("Click to fill the cup", modifier =  Modifier.offset(x = 100.dp,y = 300.dp))
                 }
             }
             Row(modifier = Modifier.padding(innerPadding)) {
@@ -52,7 +57,10 @@ fun WaterScreen() {
                     Box(modifier = Modifier
                         .fillMaxWidth(),
                     ) {
-                        Text("Go back\nto home", modifier =  Modifier.offset(x = 50.dp,y = 50.dp))
+                        Text("Go back\nto home", modifier =  Modifier
+                            .offset(x = 50.dp,y = 50.dp)
+                            .clickable { navController.navigate("home") }
+                        )
                     }
                 }
                 Card(
@@ -64,7 +72,9 @@ fun WaterScreen() {
                     Box(modifier = Modifier
                         .fillMaxWidth(),
                     ) {
-                        Text("More info", modifier =  Modifier.offset(x = 50.dp,y = 60.dp))
+                        Text("More info", modifier =  Modifier
+                            .offset(x = 50.dp,y = 60.dp)
+                            .clickable(onClick = { navController.navigate("details")}))
                     }
                 }
 
@@ -77,7 +87,8 @@ fun WaterScreen() {
 @Preview(showBackground = true)
 @Composable
 fun WaterScreenPreview() {
+    val mockNavController = rememberNavController()
     Water_drinkingTheme {
-        WaterScreen()
+        WaterScreen(navController = mockNavController)
     }
 }
