@@ -30,7 +30,7 @@ fun WdNavGraph(
             WaterScreen(navController = navController)
         }
         composable("details"){
-            MoreInfoScreen(navController = navController, randnum = (0..9).random())
+            MoreInfoScreen(navController = navController)
         }
     }
 }

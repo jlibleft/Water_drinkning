@@ -14,7 +14,6 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = PurpleGreyCard,
-    onPrimary = ThirdWhite,
     secondary = ThirdWhite,
     tertiary = BlueCard,
     surface = DarkPurpleBack,
@@ -33,8 +32,7 @@ private val LightColorScheme = lightColorScheme(
     secondary = PurpleGreyCard,
     tertiary = ThirdPurple,
     background = AlmostWhite,
-    surface = AlmostWhite,
-    onBackground = BlueCard
+    surface = AlmostWhite
 
     /* Other default colors to override
     ,

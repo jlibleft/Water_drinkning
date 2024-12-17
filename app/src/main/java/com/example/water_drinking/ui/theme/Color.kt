@@ -4,11 +4,11 @@ import androidx.compose.ui.graphics.Color
 
 
 val AlmostWhite = Color(0xFFF9FEFF)
-val BlueCard = Color(0x80E7EEFF)
-val ThirdPurple = Color(0xFF695A7F)
+val BlueCard = Color(0xFF9DB9FF)
+val ThirdPurple = Color(0xFF47374E)
 
-val DarkPurpleBack = Color(0xFF311D4E)
-val PurpleGreyCard = Color(0x80754FA5)
+val DarkPurpleBack = Color(0xFF221234)
+val PurpleGreyCard = Color(0xDC664986)
 val ThirdWhite = Color(0xFFF7FEFF)
 
 

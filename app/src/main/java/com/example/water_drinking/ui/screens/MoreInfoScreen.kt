@@ -24,18 +24,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+
 import androidx.navigation.compose.rememberNavController
+
 import com.example.water_drinking.R
 import com.example.water_drinking.ui.theme.Water_drinkingTheme
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 
 //var nums = (0..9).random()
+var randnum = (0..9).random()
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MoreInfoScreen(
-    randnum : Int,
     navController: NavHostController
 ) {
     Scaffold(topBar = {
@@ -133,6 +135,6 @@ val Messages = listOf("Cartilage, found in joints and the disks of the spine, co
 fun MoreInfoScreenPreview(){
     val mockNavController = rememberNavController()
     Water_drinkingTheme {
-        MoreInfoScreen(navController = mockNavController, randnum = 1)
+        MoreInfoScreen(navController = mockNavController)
     }
 }
