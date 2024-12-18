@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -51,7 +52,7 @@ fun HomeScreen (
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(innerPadding)){
-            Card(
+            ElevatedCard(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.secondary
@@ -61,9 +62,13 @@ fun HomeScreen (
                     .height(120.dp)
                     .fillMaxWidth()
                     .clickable(onClick = { navController.navigate("water")}),
+
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp),
             ){
                 Box(modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.TopCenter){
+                    contentAlignment = Alignment.TopCenter,
+                    ){
 
                     Text("STAY HYDRATED!",
                         modifier =  Modifier
@@ -76,7 +81,7 @@ fun HomeScreen (
 
             }
 
-            Card(
+            ElevatedCard(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.secondary
@@ -85,6 +90,8 @@ fun HomeScreen (
                     .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 16.dp)
                     .height(120.dp)
                     .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp),
             ) {
                 Box(modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.TopCenter){
@@ -103,7 +110,7 @@ fun HomeScreen (
 
             Row(modifier = Modifier.fillMaxWidth()
                 .height(75.dp)) {
-                Card(
+                ElevatedCard(
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.primary,
                         contentColor = MaterialTheme.colorScheme.secondary
@@ -112,6 +119,8 @@ fun HomeScreen (
                         .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
                         .height(56.dp)
                         .width(160.dp),
+                    elevation = CardDefaults.cardElevation(
+                        defaultElevation = 6.dp),
 
                     ) {
                     Box(modifier = Modifier

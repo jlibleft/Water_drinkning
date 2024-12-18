@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -49,7 +50,7 @@ fun MoreInfoScreen(
     }) { innerPadding ->
         Column(modifier = Modifier
             .padding(innerPadding)) {
-            Card(
+            ElevatedCard(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.secondary),
@@ -59,6 +60,8 @@ fun MoreInfoScreen(
                     .padding(bottom = 8.dp)
                     .height(280.dp)
                     .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp),
             ) {
                 Box(modifier = Modifier
                     .fillMaxSize(),
@@ -82,7 +85,7 @@ fun MoreInfoScreen(
                     )
                 }
             }
-            Card(
+            ElevatedCard(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.secondary),
@@ -90,7 +93,9 @@ fun MoreInfoScreen(
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
                     .height(48.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp),
 
             ){
                 Box(modifier = Modifier
@@ -108,13 +113,16 @@ fun MoreInfoScreen(
                 }
             }
 
-            Card(
+            ElevatedCard(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.secondary),
                 modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 8.dp)
-                .fillMaxWidth()){
+                .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp),
+            ){
                 Box(
                     modifier = Modifier.fillMaxSize()
                 ){

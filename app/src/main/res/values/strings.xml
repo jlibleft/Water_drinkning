@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Water_drinking</string>
+    <string name="cup_count">0</string>
 </resources>

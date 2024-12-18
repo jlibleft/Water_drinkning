@@ -1,5 +1,8 @@
 package com.example.water_drinking.ui.screens
 
+
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,6 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -27,13 +31,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.water_drinking.icons.CupSoda
+import com.example.water_drinking.R
 import com.example.water_drinking.icons.Glass_cup
 import com.example.water_drinking.icons.Info
 import com.example.water_drinking.ui.theme.Water_drinkingTheme
-import org.jetbrains.annotations.ApiStatus.Experimental
 
 
 
@@ -49,7 +53,7 @@ fun WaterScreen(
     }) { innerPadding ->
         Column(modifier = Modifier
             .padding(innerPadding)) {
-            Card(
+            ElevatedCard(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.secondary),
@@ -57,10 +61,15 @@ fun WaterScreen(
                     .padding(16.dp)
                     .height(350.dp)
                     .fillMaxWidth(),
+                    //.clickable { Integer.parseInt(count) },
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp),
+
             ) {
                 Column(modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center) {
+                    verticalArrangement = Arrangement.Center)
+                {
 
                     Box(modifier = Modifier
                         .height(290.dp)) {
@@ -69,7 +78,17 @@ fun WaterScreen(
                             contentDescription = null,
                             modifier = Modifier.size(280.dp)
                         )
-                        //tutaj wstawić wyświetlanie ile kubków wody już było
+                        val count = 0
+                        Text("${count}", modifier  = Modifier.align(Alignment.Center),
+                            fontSize = 36.sp)
+
+                        //kubki wody
+//                        val icon: ImageView = findViewById(R.id.icon)
+//                        val textView: TextView = findViewById(R.id.textView)
+//
+//
+//                        val Count = getString(R.string.cup_count)
+
                     }
                     Spacer(modifier = Modifier.height(8.dp))
 
@@ -84,7 +103,7 @@ fun WaterScreen(
 
             }
             Row() {
-                Card(
+                ElevatedCard(
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.primary,
                         contentColor = MaterialTheme.colorScheme.secondary),
@@ -92,7 +111,9 @@ fun WaterScreen(
                         .padding(16.dp)
                         .height(150.dp)
                         .width(160.dp)
-                        .clickable { navController.navigate("home") }
+                        .clickable { navController.navigate("home") },
+                    elevation = CardDefaults.cardElevation(
+                        defaultElevation = 6.dp),
                 ) {
                     Box(modifier = Modifier
                         .fillMaxWidth()
@@ -104,7 +125,7 @@ fun WaterScreen(
                         )
                     }
                 }
-                Card(
+                ElevatedCard(
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.primary,
                         contentColor = MaterialTheme.colorScheme.secondary),
@@ -112,6 +133,8 @@ fun WaterScreen(
                         .padding(16.dp)
                         .height(150.dp)
                         .fillMaxWidth(),
+                    elevation = CardDefaults.cardElevation(
+                        defaultElevation = 6.dp),
                 ) {
 
                         Box(

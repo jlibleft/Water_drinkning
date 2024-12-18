@@ -3,13 +3,13 @@ package com.example.water_drinking.ui.theme
 import androidx.compose.ui.graphics.Color
 
 
-val AlmostWhite = Color(0xFFFFF2DC)
-val BlueCard = Color(0xFFC0E2EF)
+val AlmostWhite = Color(0xFFFCECD2)
+val BlueCard = Color(0xFFC5E3EF)
 val ThirdPurple = Color(0xFF221826)
 
-val DarkPurpleBack = Color(0xFF221234)
-val PurpleGreyCard = Color(0xDC64446D)
-val ThirdWhite = Color(0xFFF7FEFF)
+val DarkPurpleBack = Color(0xFF34253D)
+val PurpleGreyCard = Color(0xFF5E476C)
+val ThirdWhite = Color(0xFFE7DBC7)
 
 
 
