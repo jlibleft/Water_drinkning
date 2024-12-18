@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -41,11 +43,17 @@ fun MoreInfoScreen(
     navController: NavHostController
 ) {
     Scaffold(topBar = {
-        TopAppBar(title = { Text("Did you know?", modifier =  Modifier.offset(x = 120.dp,y = 10.dp)) })
+        TopAppBar(title = { Text("Did you know?",
+            modifier =  Modifier.offset(x = 120.dp,y = 10.dp),
+            color = MaterialTheme.colorScheme.secondary) })
     }) { innerPadding ->
         Column(modifier = Modifier
             .padding(innerPadding)) {
             Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.secondary),
+
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp)
                     .padding(bottom = 8.dp)
@@ -75,6 +83,10 @@ fun MoreInfoScreen(
                 }
             }
             Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.secondary),
+
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
                     .height(48.dp)
@@ -96,7 +108,11 @@ fun MoreInfoScreen(
                 }
             }
 
-            Card(modifier = Modifier
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.secondary),
+                modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 8.dp)
                 .fillMaxWidth()){
                 Box(

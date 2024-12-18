@@ -42,8 +42,8 @@ fun HomeScreen (
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(title = { Text("Drink & Activity Tracker",
-                modifier =  Modifier,
                 style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.secondary
             )
             })
         })
@@ -54,6 +54,7 @@ fun HomeScreen (
             Card(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.secondary
                 ),
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp)
@@ -78,6 +79,7 @@ fun HomeScreen (
             Card(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.secondary
                 ),
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 16.dp)
@@ -104,6 +106,7 @@ fun HomeScreen (
                 Card(
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.secondary
                     ),
                     modifier = Modifier
                         .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
@@ -143,7 +146,8 @@ fun HomeScreen (
                 modifier = Modifier
                     .offset(x = 80.dp)
                     .padding(8.dp),
-                style = MaterialTheme.typography.labelSmall
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.secondary
             )
 
             

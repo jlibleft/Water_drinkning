@@ -29,7 +29,7 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     primary = BlueCard,
-    secondary = PurpleGreyCard,
+    secondary = ThirdPurple,
     tertiary = ThirdPurple,
     background = AlmostWhite,
     surface = AlmostWhite
@@ -115,7 +115,7 @@ private val DarkColorScheme = darkColorScheme(
 fun Water_drinkingTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
