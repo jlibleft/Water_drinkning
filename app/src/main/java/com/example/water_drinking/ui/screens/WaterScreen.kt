@@ -1,8 +1,7 @@
 package com.example.water_drinking.ui.screens
 
 
-import android.widget.ImageView
-import android.widget.TextView
+
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,7 +15,8 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Card
+import androidx.compose.material3.Button
+
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,6 +26,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -34,11 +35,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.water_drinking.R
 import com.example.water_drinking.icons.Glass_cup
 import com.example.water_drinking.icons.Info
 import com.example.water_drinking.ui.theme.Water_drinkingTheme
 
+
+val count = mutableListOf(0)
+val onClick = {count[0] += 1}
 
 
 
@@ -46,7 +49,8 @@ import com.example.water_drinking.ui.theme.Water_drinkingTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WaterScreen(
-    navController: NavHostController
+    navController: NavHostController,
+
 ) {
     Scaffold(topBar = {
         TopAppBar(title = { Text("Water drinking", modifier =  Modifier.offset(x = 120.dp,y = 10.dp), color = MaterialTheme.colorScheme.secondary) })
@@ -61,7 +65,6 @@ fun WaterScreen(
                     .padding(16.dp)
                     .height(350.dp)
                     .fillMaxWidth(),
-                    //.clickable { Integer.parseInt(count) },
                 elevation = CardDefaults.cardElevation(
                     defaultElevation = 6.dp),
 
@@ -78,8 +81,9 @@ fun WaterScreen(
                             contentDescription = null,
                             modifier = Modifier.size(280.dp)
                         )
-                        val count = 0
-                        Text("${count}", modifier  = Modifier.align(Alignment.Center),
+
+
+                        Text("${count[0]}", modifier  = Modifier.align(Alignment.Center),
                             fontSize = 36.sp)
 
                         //kubki wody
@@ -92,7 +96,7 @@ fun WaterScreen(
                     }
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    Box() {
+                    Button(onClick = onClick) {
                         Text("Click to add another cup",
                             //modifier =  Modifier.offset(x = 100.dp,y = 300.dp)
                             textAlign = TextAlign.Center
@@ -179,11 +183,11 @@ fun WaterScreen(
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun WaterScreenPreview() {
-    val mockNavController = rememberNavController()
-    Water_drinkingTheme {
-        WaterScreen(navController = mockNavController)
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun WaterScreenPreview() {
+//    val mockNavController = rememberNavController()
+//    Water_drinkingTheme {
+//        WaterScreen(navController = mockNavController, count = 0, onClick = count += 1})
+//    }
+//}
