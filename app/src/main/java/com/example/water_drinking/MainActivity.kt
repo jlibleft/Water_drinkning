@@ -45,9 +45,7 @@ class MainActivity : ComponentActivity() {
                 }
                 val counter = remember{ mutableListOf(0) }
                 val onClick = {counter[0] += 1}
-                WaterDrinkingApp(startDestination = "home")
-
-
+                WaterDrinkingApp(startDestination = "loading")
             }
         }
     }

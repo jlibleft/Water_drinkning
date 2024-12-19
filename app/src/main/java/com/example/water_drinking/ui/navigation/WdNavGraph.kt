@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.water_drinking.ui.screens.HomeScreen
+import com.example.water_drinking.ui.screens.LoadingScreen
 import com.example.water_drinking.ui.screens.MoreInfoScreen
 import com.example.water_drinking.ui.screens.WaterScreen
 
@@ -15,7 +16,7 @@ import com.example.water_drinking.ui.screens.WaterScreen
 fun WdNavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = "home",
+    startDestination: String = "loading",
 )
 {
     NavHost(
@@ -24,6 +25,9 @@ fun WdNavGraph(
         modifier = modifier
     )
     {
+        composable("loading"){
+            LoadingScreen(navController = navController)
+        }
         composable("home"){
             HomeScreen(navController = navController)
         }

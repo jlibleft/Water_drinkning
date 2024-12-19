@@ -21,6 +21,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,10 +31,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.water_drinking.ui.theme.Water_drinkingTheme
+import kotlinx.coroutines.delay
 
 @Composable
-fun LoadingScreen() {
+fun LoadingScreen(
+    navController: NavHostController
+) {
     val infiniteTransition = rememberInfiniteTransition()
     val scale by infiniteTransition.animateFloat(
         initialValue = 0.8f,
@@ -43,6 +49,14 @@ fun LoadingScreen() {
             repeatMode = RepeatMode.Reverse
         ), label = ""
     )
+
+    LaunchedEffect(Unit) {
+        delay(3000) // Delay for 3000ms
+        navController.navigate("home") { // Replace "home" with your actual home route name
+            popUpTo("loading") { inclusive = true } // Optionally clear the backstack
+        }
+    }
+
     Box(contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()){
         Column(horizontalAlignment = Alignment.CenterHorizontally){
@@ -77,7 +91,8 @@ fun LoadingScreen() {
 @Preview(showBackground = true)
 @Composable
 fun LoadingScreenPreview() {
+    val mockNavController = rememberNavController()
     Water_drinkingTheme  {
-        LoadingScreen()
+        LoadingScreen(navController = mockNavController)
     }
 }

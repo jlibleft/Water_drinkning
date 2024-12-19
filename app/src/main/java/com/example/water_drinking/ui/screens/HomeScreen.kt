@@ -12,11 +12,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -32,6 +34,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.water_drinking.R
+import com.example.water_drinking.icons.Glass_cup
+import com.example.water_drinking.icons.Water_bottle
 import com.example.water_drinking.ui.theme.Water_drinkingTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -141,13 +145,20 @@ fun HomeScreen (
                 modifier = Modifier.fillMaxWidth()
                     .height(250.dp)
             ){
-                val image = painterResource(R.drawable.vecteezy_transparent_blue_water_bottle_with_black_cap_isolated_on_50591748)
-                Image(
-                    painter = image,
+//                val image = painterResource(R.drawable.vecteezy_transparent_blue_water_bottle_with_black_cap_isolated_on_50591748)
+//                Image(
+//                    painter = image,
+//                    contentDescription = null,
+//                    modifier = Modifier
+//                        .align(Alignment.BottomEnd)
+//
+//                )
+                Icon(
+                    imageVector = Water_bottle,
                     contentDescription = null,
                     modifier = Modifier
-                        .align(Alignment.BottomEnd)
-
+                        .size(250.dp)
+                        .offset(145.dp)
                 )
             }
 
