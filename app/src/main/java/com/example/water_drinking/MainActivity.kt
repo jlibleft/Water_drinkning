@@ -26,6 +26,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.TopAppBar
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import com.example.water_drinking.ui.navigation.WaterDrinkingApp
@@ -42,7 +43,11 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize()) {
                 }
+                val counter = remember{ mutableListOf(0) }
+                val onClick = {counter[0] += 1}
                 WaterDrinkingApp(startDestination = "home")
+
+
             }
         }
     }
