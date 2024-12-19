@@ -14,7 +14,6 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = PurpleGreyCard,
-    onPrimary = ThirdWhite,
     secondary = ThirdWhite,
     tertiary = BlueCard,
     surface = DarkPurpleBack,
@@ -30,11 +29,10 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     primary = BlueCard,
-    secondary = PurpleGreyCard,
+    secondary = ThirdPurple,
     tertiary = ThirdPurple,
     background = AlmostWhite,
-    surface = AlmostWhite,
-    onBackground = BlueCard
+    surface = AlmostWhite
 
     /* Other default colors to override
     ,
@@ -117,7 +115,7 @@ private val DarkColorScheme = darkColorScheme(
 fun Water_drinkingTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

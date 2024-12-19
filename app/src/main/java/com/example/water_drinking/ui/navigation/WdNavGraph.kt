@@ -1,6 +1,7 @@
 package com.example.water_drinking.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -27,10 +28,11 @@ fun WdNavGraph(
             HomeScreen(navController = navController)
         }
         composable("water"){
+
             WaterScreen(navController = navController)
         }
         composable("details"){
-            MoreInfoScreen(navController = navController, randnum = (0..9).random())
+            MoreInfoScreen(navController = navController)
         }
     }
 }

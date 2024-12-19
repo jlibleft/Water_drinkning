@@ -10,7 +10,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -24,31 +27,41 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+
 import androidx.navigation.compose.rememberNavController
+
 import com.example.water_drinking.R
 import com.example.water_drinking.ui.theme.Water_drinkingTheme
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 
 //var nums = (0..9).random()
+var randnum = (0..9).random()
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MoreInfoScreen(
-    randnum : Int,
     navController: NavHostController
 ) {
     Scaffold(topBar = {
-        TopAppBar(title = { Text("Did you know?", modifier =  Modifier.offset(x = 120.dp,y = 10.dp)) })
+        TopAppBar(title = { Text("Did you know?",
+            modifier =  Modifier.offset(x = 120.dp,y = 10.dp),
+            color = MaterialTheme.colorScheme.secondary) })
     }) { innerPadding ->
         Column(modifier = Modifier
             .padding(innerPadding)) {
-            Card(
+            ElevatedCard(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.secondary),
+
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp)
                     .padding(bottom = 8.dp)
                     .height(280.dp)
                     .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp),
             ) {
                 Box(modifier = Modifier
                     .fillMaxSize(),
@@ -72,11 +85,17 @@ fun MoreInfoScreen(
                     )
                 }
             }
-            Card(
+            ElevatedCard(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.secondary),
+
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
                     .height(48.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp),
 
             ){
                 Box(modifier = Modifier
@@ -94,9 +113,16 @@ fun MoreInfoScreen(
                 }
             }
 
-            Card(modifier = Modifier
+            ElevatedCard(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.secondary),
+                modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 8.dp)
-                .fillMaxWidth()){
+                .fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp),
+            ){
                 Box(
                     modifier = Modifier.fillMaxSize()
                 ){
@@ -133,6 +159,6 @@ val Messages = listOf("Cartilage, found in joints and the disks of the spine, co
 fun MoreInfoScreenPreview(){
     val mockNavController = rememberNavController()
     Water_drinkingTheme {
-        MoreInfoScreen(navController = mockNavController, randnum = 1)
+        MoreInfoScreen(navController = mockNavController)
     }
 }
